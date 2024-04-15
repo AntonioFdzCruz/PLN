@@ -8,7 +8,7 @@ El ejercicio consiste en encontrar todas las "palabras" de 3 o 4 letras
 import nltk
 import matplotlib.pyplot as plt
 
-carpeta_nombre='D:\\Tony\\Documents\\MEGAsync\\6to Sem\\Optativa PLN - Procesamiento de Lenguaje Natural\\Actividad_PLN_GitDash\\Documentos\\'
+carpeta_nombre='Actividad_PLN_GitDash\\Documentos\\'
 archivo_nombre="archivo1.txt"
 with open(carpeta_nombre+archivo_nombre,"r", encoding='utf-8') as archivo:
     texto=archivo.read()

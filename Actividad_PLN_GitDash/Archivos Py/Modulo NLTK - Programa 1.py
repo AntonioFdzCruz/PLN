@@ -7,7 +7,7 @@ El ejercicio consiste en encontrar todas las "palabras" de 3 o 4 letras
 '''
 import re
 
-carpeta_nombre='D:\\Tony\\Documents\\MEGAsync\\6to Sem\\Optativa PLN - Procesamiento de Lenguaje Natural\\Programas2024\\Documentos\\'
+carpeta_nombre='Actividad_PLN_GitDash\\Documentos\\'
 archivo_nombre="archivo1.txt"
 with open(carpeta_nombre+archivo_nombre,"r", encoding='utf-8') as archivo:
     texto=archivo.read()
