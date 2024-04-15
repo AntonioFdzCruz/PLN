@@ -14,7 +14,9 @@ def obtener_texto_desde_url(url):
     return texto
 
 # URL de la página web que deseas buscar
-url = "https://www.guiainfantil.com/articulos/ocio/cuentos-infantiles/10-cuentos-cortos-para-leer-con-ninos/"
+print('\n\nIngresa la Direccion que quieres utilizar para el programa con las funciones NTLK de PLN')
+url = input()
+#url = "https://www.guiainfantil.com/articulos/ocio/cuentos-infantiles/10-cuentos-cortos-para-leer-con-ninos/"
 texto = obtener_texto_desde_url(url)
 print(texto)
 

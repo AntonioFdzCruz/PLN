@@ -9,8 +9,9 @@ import re
 import requests
 
 # URL de la página web que deseas buscar
-url = "https://www.guiainfantil.com/articulos/ocio/cuentos-infantiles/10-cuentos-cortos-para-leer-con-ninos/"
-
+#url = "https://www.guiainfantil.com/articulos/ocio/cuentos-infantiles/10-cuentos-cortos-para-leer-con-ninos/"
+print('\n\nIngresa la Direccion que quieres utilizar para el programa con las funciones NTLK de PLN')
+url = input()
 # Obtener el contenido HTML de la página web
 response = requests.get(url)
 html = response.text
