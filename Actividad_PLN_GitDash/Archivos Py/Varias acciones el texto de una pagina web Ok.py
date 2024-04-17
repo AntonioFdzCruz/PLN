@@ -8,6 +8,9 @@ import os
 nltk.download('punkt')
 nltk.download('stopwords')
 
+os.system('pause')
+os.system('cls')
+
 print('\n■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ INICIO del Programa ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■')
 
 Programa=[
