@@ -90,6 +90,45 @@ with open("D:\\Tony\\Documents\\MEGAsync\\6to Sem\\Optativa PLN - Procesamiento 
 print("Número de líneas de texto en la página ►", num_lineas)
 print("-------------------------------------------------------------------------------------------\n")
 
+# print('•4• Mostrar palabras de 3 o 4 caracteres:')
+# import re
+
+# # Abrir el archivo de texto
+# with open("D:\\Tony\\Documents\\MEGAsync\\6to Sem\\Optativa PLN - Procesamiento de Lenguaje Natural\\PLN\\Actividad_PLN_GitDash\\Documentos\\PLN_texto_pagina_web.txt", "r", encoding="utf-8") as archivo:
+#     # Leer el contenido del archivo
+#     contenido = archivo.read()
+#     # Utilizar una expresión regular para encontrar palabras de 3 o 4 caracteres
+#     palabras_3_4 = re.findall(r'\b\w{3,4}\b', contenido)
+
+# # Imprimir las palabras de 3 o 4 caracteres
+# print("Palabras de 3 o 4 caracteres encontradas ▼")
+# for palabra in palabras_3_4:
+#     print(palabra)
+# print("-------------------------------------------------------------------------------------------\n")
+
+# print('•4• Mostrar palabras de 3 o 4 caracteres:')
+# import re
+
+# # Abrir el archivo de texto
+# with open("D:\\Tony\\Documents\\MEGAsync\\6to Sem\\Optativa PLN - Procesamiento de Lenguaje Natural\\PLN\\Actividad_PLN_GitDash\\Documentos\\PLN_texto_pagina_web.txt", "r", encoding="utf-8") as archivo:
+#     # Leer el contenido del archivo
+#     contenido = archivo.read()
+#     # Utilizar una expresión regular para encontrar palabras de 3 o 4 caracteres
+#     palabras_3_4 = re.findall(r'\b\w{3,4}\b', contenido)
+
+# # Imprimir las palabras de 3 o 4 caracteres en 4 columnas
+# print("Palabras de 3 o 4 caracteres encontradas:")
+# # Calcular el número de palabras por columna
+# num_palabras_columna = len(palabras_3_4) // 4
+# # Imprimir las palabras en 4 columnas
+# for i in range(num_palabras_columna):
+#     print("{:15s} {:15s} {:15s} {:15s}".format(palabras_3_4[i], palabras_3_4[i + num_palabras_columna], palabras_3_4[i + 2*num_palabras_columna], palabras_3_4[i + 3*num_palabras_columna]))
+# # Si hay palabras restantes, imprimirlas en la última columna
+# if len(palabras_3_4) % 4 != 0:
+#     for i in range(num_palabras_columna * 4, len(palabras_3_4)):
+#         print("{:15s}".format(palabras_3_4[i]), end=" ")
+# print("-------------------------------------------------------------------------------------------\n")
+
 print('•4• Mostrar palabras de 3 o 4 caracteres:')
 import re
 
@@ -100,11 +139,21 @@ with open("D:\\Tony\\Documents\\MEGAsync\\6to Sem\\Optativa PLN - Procesamiento 
     # Utilizar una expresión regular para encontrar palabras de 3 o 4 caracteres
     palabras_3_4 = re.findall(r'\b\w{3,4}\b', contenido)
 
-# Imprimir las palabras de 3 o 4 caracteres
-print("Palabras de 3 o 4 caracteres encontradas ▼")
-for palabra in palabras_3_4:
-    print(palabra)
-print("-------------------------------------------------------------------------------------------\n")
+# Imprimir las palabras de 3 o 4 caracteres en 7 columnas
+print("Palabras de 3 o 4 caracteres encontradas:")
+# Calcular el número de palabras por columna
+num_palabras_columna = len(palabras_3_4) // 7
+# Imprimir las palabras en 7 columnas
+for i in range(num_palabras_columna):
+    print("{:15s} {:15s} {:15s} {:15s} {:15s} {:15s} {:15s}".format(
+        palabras_3_4[i], palabras_3_4[i + num_palabras_columna], palabras_3_4[i + 2*num_palabras_columna],
+        palabras_3_4[i + 3*num_palabras_columna], palabras_3_4[i + 4*num_palabras_columna],
+        palabras_3_4[i + 5*num_palabras_columna], palabras_3_4[i + 6*num_palabras_columna]))
+# Si hay palabras restantes, imprimirlas en la última columna
+if len(palabras_3_4) % 7 != 0:
+    for i in range(num_palabras_columna * 7, len(palabras_3_4)):
+        print("{:15s}".format(palabras_3_4[i]), end=" ")
+print("\n-------------------------------------------------------------------------------------------\n")
 
 print('•5• Cuenta el numero de veces que aparece la palabra en el texto (palabra especificada):')
 # Definir la palabra fija que quieres buscar
@@ -147,7 +196,7 @@ with open("D:\\Tony\\Documents\\MEGAsync\\6to Sem\\Optativa PLN - Procesamiento 
 
 # Imprimir el texto extraído
 print("Texto extraído del archivo ▼")
-print(texto_extraido)
+#print(texto_extraido)
 print("-------------------------------------------------------------------------------------------\n")
 
 print('•8• Cargar palabras funcionales en español de NLTK:')
@@ -167,9 +216,37 @@ print('')
 print("Cantidad total de palabras funcionales en español ►", len(palabras_funcionales))
 print("-------------------------------------------------------------------------------------------\n")
 
+# print('•9• Tokenizar el texto y eliminar palabras funcionales:')
+# # import nltk
+# # import re
+
+# # # Descargar recursos necesarios de NLTK
+# # nltk.download('punkt')
+# # nltk.download('stopwords')
+
+# # Cargar el texto del archivo
+# texto_extraido = ""
+# with open("D:\\Tony\\Documents\\MEGAsync\\6to Sem\\Optativa PLN - Procesamiento de Lenguaje Natural\\PLN\\Actividad_PLN_GitDash\\Documentos\\PLN_texto_pagina_web_EXTRAIDO.txt", "r", encoding="utf-8") as archivo_extraido:
+#     texto_extraido = archivo_extraido.read()
+
+# # Cargar palabras funcionales en español
+# palabras_funcionales = nltk.corpus.stopwords.words("spanish")
+
+# # Tokenizar el texto
+# tokens = nltk.word_tokenize(texto_extraido, language="spanish")
+
+# # Eliminar palabras funcionales
+# tokens_limpios = [token for token in tokens if token.lower() not in palabras_funcionales]
+
+# # Imprimir algunos detalles sobre los tokens limpios
+# print("\nTokens limpios  ▼")
+# print(tokens_limpios[:20])  # Imprime los primeros 20 tokens limpios
+# print("\nNúmero total de tokens ►", len(tokens))
+# print("\nNúmero de tokens limpios ►", len(tokens_limpios))
+# print("-------------------------------------------------------------------------------------------\n")
+
 print('•9• Tokenizar el texto y eliminar palabras funcionales:')
-# import nltk
-# import re
+import nltk
 
 # # Descargar recursos necesarios de NLTK
 # nltk.download('punkt')
@@ -191,10 +268,16 @@ tokens_limpios = [token for token in tokens if token.lower() not in palabras_fun
 
 # Imprimir algunos detalles sobre los tokens limpios
 print("\nTokens limpios  ▼")
-print(tokens_limpios[:20])  # Imprime los primeros 20 tokens limpios
+num_tokens_por_linea = 10  # Número de tokens por línea
+num_lineas = len(tokens_limpios) // num_tokens_por_linea  # Número total de líneas
+for i in range(num_lineas + 1):
+    inicio = i * num_tokens_por_linea
+    fin = (i + 1) * num_tokens_por_linea
+    print(tokens_limpios[inicio:fin])  # Imprime un grupo de tokens limpios por línea
 print("\nNúmero total de tokens ►", len(tokens))
 print("\nNúmero de tokens limpios ►", len(tokens_limpios))
 print("-------------------------------------------------------------------------------------------\n")
+
 
 print('•10• Imprimir algunos detalles sobre los tokens:')
 # Imprimir algunos detalles sobre los tokens limpios
@@ -202,6 +285,23 @@ print("\nAlgunos detalles sobre los tokens limpios ▼")
 for i, token in enumerate(tokens_limpios[:20], 1):
     print(f"Token {i}: {token}")
 print("-------------------------------------------------------------------------------------------\n")
+
+# print('•11• Crear un objeto Text de NLTK y calcular la distribución de frecuencia.')
+# import nltk
+# from nltk.probability import FreqDist
+
+# # Crear un objeto Text de NLTK
+# texto_limpio_nltk = nltk.Text(tokens_limpios)
+
+# # Calcular la distribución de frecuencia
+# distribucion_limpia = FreqDist(texto_limpio_nltk)
+
+# # Imprimir algunos detalles sobre la distribución de frecuencia
+# print("\nDistribución de frecuencia de los tokens limpios:")
+# print("Número total de tokens únicos ►", len(distribucion_limpia))
+# print("Las 20 palabras más comunes ▼")
+# print(distribucion_limpia.most_common(20))
+# print("-------------------------------------------------------------------------------------------\n")
 
 print('•11• Crear un objeto Text de NLTK y calcular la distribución de frecuencia.')
 import nltk
@@ -215,10 +315,16 @@ distribucion_limpia = FreqDist(texto_limpio_nltk)
 
 # Imprimir algunos detalles sobre la distribución de frecuencia
 print("\nDistribución de frecuencia de los tokens limpios:")
-print("Número total de tokens únicos ►", len(distribucion_limpia))
-print("Las 20 palabras más comunes ▼")
-print(distribucion_limpia.most_common(20))
+num_palabras_por_linea = 5  # Número de palabras por línea
+palabras_comunes = distribucion_limpia.most_common(20)  # Obtener las 20 palabras más comunes
+num_lineas = len(palabras_comunes) // num_palabras_por_linea  # Número total de líneas
+for i in range(num_lineas + 1):
+    inicio = i * num_palabras_por_linea
+    fin = (i + 1) * num_palabras_por_linea
+    print(palabras_comunes[inicio:fin])  # Imprimir un grupo de palabras por línea
 print("-------------------------------------------------------------------------------------------\n")
+
+
 
 
 print('•12• Graficar las 40 palabras más comunes.\n')
