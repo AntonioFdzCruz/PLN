@@ -196,7 +196,7 @@ with open("D:\\Tony\\Documents\\MEGAsync\\6to Sem\\Optativa PLN - Procesamiento 
 
 # Imprimir el texto extraído
 print("Texto extraído del archivo ▼")
-#print(texto_extraido)
+print(texto_extraido)
 print("-------------------------------------------------------------------------------------------\n")
 
 print('•8• Cargar palabras funcionales en español de NLTK:')
