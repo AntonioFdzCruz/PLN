@@ -1,16 +1,16 @@
 import os
 import re
 import nltk
-import PyPDF2
+from pdfminer.high_level import extract_text
 
 # Descargar recursos necesarios para NLTK
 nltk.download('punkt')
 nltk.download('stopwords')
 
-print('\n■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ INICIO del Programa •Documento •Documento PDF - VALIDADO• ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■')
+print('\n■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ INICIO del Programa •Documento •Documento PDF - VALIDADO• ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■')
 
 Programa = [
-    '\n○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○ M E N U ○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○\n',
+    '\n○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○ M E N U ○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○',
     '■ Realizar las siguientes acciones sobre un documento PDF ■',
     '► Ingresar un Archivo *.pdf almacenado en la computadora ("Validar su Ubicación y su formato").',
     '•01• Enviar el texto del archivo *.pdf a un archivo de texto.txt almacenado en la computadora.',
@@ -25,17 +25,19 @@ Programa = [
     '•10• Imprimir algunos detalles sobre los tokens.',
     '•11• Crear un objeto Text de NLTK y calcular la distribución de frecuencia.',
     '•12• Graficar las 40 palabras más comunes.\n',
-    '\n○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○ M E N U ○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○\n',
+    '\n○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○ M E N U ○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○○',
 ]
 
 print(*Programa, sep="\n")
 
 print('\n► Ingresar un Archivo *.pdf almacenado en la computadora ("Validar su Ubicación y su formato").\n')
 
+import os
+import nltk
 
 def validar_ruta_archivo():
     while True:
-        ruta_archivo = input("      Ingresa la ruta del archivo .pdf: ")
+        ruta_archivo = input("Ingresa la ruta del archivo .pdf: ")
         # Reemplazar cada barra invertida con dos barras invertidas
         ruta_archivo = ruta_archivo.replace('\\', '\\\\')
         if os.path.exists(ruta_archivo) and ruta_archivo.endswith('.pdf'):
@@ -44,72 +46,34 @@ def validar_ruta_archivo():
         else:
             print('■ La ruta que ingresaste es incorrecta o no cumple los requerimientos ■\n• Favor de verificar •')
 
-
-# Validar la ruta del archivo una vez
-archivo_pdf = validar_ruta_archivo()
-
-
-
-import PyPDF2
-
-# Declara una variable global para el objeto reader
-global reader
-
-def validar_entrada_PDF(file_path):
-    global reader
-    try:
-        with open(file_path, 'rb') as file:
-            reader = PyPDF2.PdfReader(file)
-            if len(reader.pages) > 0:
-                print('• Archivo .pdf válido •')
-                return True
-            else:
-                print("El archivo PDF está vacío.")
-                return False
-    except Exception as e:
-        print('■ Error al abrir el archivo ■\n', e)
-        return False
-
-
-if documento_pdf:
-    contenido = ""
-    # Extraer el texto después de verificar todas las páginas
-    for page in documento_pdf.pages:
-        contenido += page.extract_text()
-
-
-
 def validar_entrada_PDF(file_path):
     try:
-        with open(file_path, 'rb') as file:
-            reader = PyPDF2.PdfReader(file)
-            if len(reader.pages) > 0:
-                print('• Archivo .pdf válido •')
-                return reader
-            else:
-                print("El archivo PDF está vacío.")
-                return None
+        text = extract_text(file_path)
+        if text.strip():
+            print('• Archivo .pdf válido •')
+            return text
+        else:
+            print("El archivo PDF está vacío.")
+            return None
     except Exception as e:
         print('■ Error al abrir el archivo ■\n', e)
         return None
 
+# Obtener la ruta del archivo PDF
+archivo_pdf = validar_ruta_archivo()
 
-# Validar la entrada del archivo .pdf
+# Llamar a la función para validar la entrada del archivo PDF
 documento_pdf = validar_entrada_PDF(archivo_pdf)
-if documento_pdf:
-    contenido = ""
-    for page in documento_pdf.pages:
-        contenido = page.extract_text()
+if documento_pdf:  # Verifica si documento_pdf no es None
     print("Contenido del documento PDF:")
-    print(contenido)
+    print(documento_pdf)
     print('\nEste fue el contenido del archivo cargado.')
-
     # Ruta del archivo TXT donde se guardará el contenido
     archivo_txt = archivo_pdf.replace('.pdf', '.txt')
 
     # Guarda el contenido en el archivo TXT
     with open(archivo_txt, 'w') as file:
-        file.write(contenido)
+        file.write(documento_pdf)
         print("-------------------------------------------------------------------------------------------\n")
         print('•01• Enviar el texto del archivo *.pdf a un archivo de texto.txt almacenado en la computadora.')
         print(f'■ El contenido del archivo PDF se ha guardado en {archivo_txt} ■')
@@ -117,7 +81,6 @@ else:
     print("No se pudo guardar el documento‼")
 
 print("-------------------------------------------------------------------------------------------\n")
-
 
 
 print('•2• Contar  el numero de palabras:')
@@ -229,6 +192,7 @@ print(texto_extraido)
 os.system('pause')
 print("-------------------------------------------------------------------------------------------\n")
 
+
 print('•8• Cargar palabras funcionales en español de NLTK:')
 import nltk
 
@@ -283,6 +247,7 @@ print("\nNúmero de tokens limpios ►", len(tokens_limpios))
 
 os.system('pause')
 print("-------------------------------------------------------------------------------------------\n")
+
 
 os.system('pause')
 print('•10• Imprimir algunos detalles sobre los tokens:')
