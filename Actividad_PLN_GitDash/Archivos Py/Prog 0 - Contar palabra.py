@@ -18,7 +18,7 @@ def verificar_archivo(archivo):
 
 def buscar_palabra(archivo, palabra):
     try:
-        with open("D:\\Tony\\Documents\\MEGAsync\\6to Sem\\Optativa PLN - Procesamiento de Lenguaje Natural\\Programas2024\\Documentos\\archivo1.txt", 'r', encoding='utf-8') as archivo_txt:
+        with open("D:\\testpln\\archivo3.txt", 'r', encoding='utf-8') as archivo_txt:
             contenido = archivo_txt.read()
             palabra = palabra.lower()  # Convertir la palabra a minúsculas para hacer la búsqueda insensible a mayúsculas y minúsculas
             conteo = contenido.lower().count(palabra)
