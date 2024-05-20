@@ -43,7 +43,7 @@ def grabar_audio():
     cuenta_regresiva_thread.start()
 
     # Obtener nombre de archivo único basado en el tiempo actual
-    grabacion_filename = "Audio_PLN_PASO_1.wav"
+    grabacion_filename = "./Audio_PLN_PASO_1.wav"
 
     # Grabación de audio
     for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
