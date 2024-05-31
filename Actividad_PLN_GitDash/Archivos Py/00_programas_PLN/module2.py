@@ -48,7 +48,7 @@ def grabar_audio():
     cuenta_regresiva_thread.start()
 
     # Obtener nombre de archivo único basado en el tiempo actual
-    grabacion_filename = "D:\\archivos_progs_pln\\Audio_PLN_PASO_1.wav"
+    grabacion_filename = "D:\\00_programas_PLN\\archivos\\Audio_PLN_PASO_1.wav"
     # grabacion_filename = "Audio_PLN_PASO_1.wav"
 
     # Grabación de audio
@@ -76,7 +76,7 @@ def grabar_audio():
 
 def texto_a_audio(texto):
     # Obtener nombre de archivo único basado en el tiempo actual
-    audio_filename = "D:\\archivos_progs_pln\\Audio_PLN_PASO_2.wav"
+    audio_filename = "D:\\00_programas_PLN\\archivos\\Audio_PLN_PASO_2.wav"
 
     # Inicializar el motor de texto a voz
     engine = pyttsx3.init()
@@ -116,7 +116,7 @@ def leer_archivo():
     # print('----------------------------------------------------------')
     print("■ Leyendo archivo de texto:")
     print('')
-    archivo_texto = "D:/archivos_progs_pln/texto_PLN.txt"
+    archivo_texto = "D:\\00_programas_PLN\\archivos\\texto_PLN.txt"
     if os.path.exists(archivo_texto):
         try:
             with open(archivo_texto, "r", encoding="utf-8") as file:

@@ -1,7 +1,8 @@
-def run_module2():
-    print("Módulo 2 ejecutado EXITOSAMENTE • Graba un audio y lo convierte a texto y lo muestre en la pantalla el texto grabado")
+def run_module4():
+    print("Módulo 4 ejecutado - Tratamiento del archivo de Texto y conversión de estructura CSV")
 
-print('Soy el archivo 2')
+print('Soy el archivo 4')
+
 
 
 import pyaudio
@@ -48,8 +49,7 @@ def grabar_audio():
     cuenta_regresiva_thread.start()
 
     # Obtener nombre de archivo único basado en el tiempo actual
-    grabacion_filename = "D:\\archivos_progs_pln\\Audio_PLN_PASO_1.wav"
-    # grabacion_filename = "Audio_PLN_PASO_1.wav"
+    grabacion_filename = "\\00_programas_PLN\\archivos\\Audio_PLN_PASO_1.wav"
 
     # Grabación de audio
     for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
@@ -76,7 +76,7 @@ def grabar_audio():
 
 def texto_a_audio(texto):
     # Obtener nombre de archivo único basado en el tiempo actual
-    audio_filename = "D:\\archivos_progs_pln\\Audio_PLN_PASO_2.wav"
+    audio_filename = "\\00_programas_PLN\\archivos\\Audio_PLN_PASO_2.wav"
 
     # Inicializar el motor de texto a voz
     engine = pyttsx3.init()
@@ -116,7 +116,7 @@ def leer_archivo():
     # print('----------------------------------------------------------')
     print("■ Leyendo archivo de texto:")
     print('')
-    archivo_texto = "D:/archivos_progs_pln/texto_PLN.txt"
+    archivo_texto = "texto_PLN.txt"
     if os.path.exists(archivo_texto):
         try:
             with open(archivo_texto, "r", encoding="utf-8") as file:
@@ -132,7 +132,7 @@ def leer_archivo():
 # Lógica principal del programa
 while True:
     grabacion_filename = grabar_audio()
-    
+
     texto = reconocer_audio(grabacion_filename)
     if texto is None:
         print("• • • Se produjo un error al transcribir el audio. ¿Deseas volver a grabar el audio? (s/n)")
@@ -151,4 +151,4 @@ while True:
     if opcion.lower() != 's':
         print("¡Hasta luego!")
         break
-
+ 

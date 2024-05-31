@@ -3,6 +3,26 @@ import sys
 import importlib
 from tkinter import ttk  # Agrega esta línea para importar el módulo ttk
 
+
+#utilizare:
+import os
+import pyttsx3
+import pygame
+import pyaudio
+import wave
+import keyboard
+import speech_recognition as sr
+import time
+import threading
+import requests
+import re
+import nltk
+from nltk.corpus import stopwords
+
+
+
+
+#D:\\00_programas_PLN\\archivos\\
 #ruta:  D:\\Tony\\Documents\\MEGAsync\\6to Sem\\Optativa PLN - Procesamiento de Lenguaje Natural\\PLN\\Actividad_PLN_GitDash\\Archivos Py\\Programas_PLN\\archivos\\
 
 
@@ -26,45 +46,45 @@ def main():
 
 
     def programa1():
-        sys.stdout = StdoutRedirector(consola)
+        # sys.stdout = StdoutRedirector(consola)
         module = importlib.import_module("module1")
         module.run_module1()
         pass
 
     def programa2():
-        sys.stdout = StdoutRedirector(consola)
+        # sys.stdout = StdoutRedirector(consola)
         module = importlib.import_module("module2")
-        module.run_module2()
+        # module.run_module2()
         pass
 
     def programa3():
-        sys.stdout = StdoutRedirector(consola)
+        # sys.stdout = StdoutRedirector(consola)
         module = importlib.import_module("module3")
-        module.run_module3()
+        # module.run_module3()
         pass
 
     def programa4():
-        sys.stdout = StdoutRedirector(consola)
+        # sys.stdout = StdoutRedirector(consola)
         module = importlib.import_module("module4")
-        module.run_module4()
+        # module.run_module4()
         pass
 
     def programa5():
-        sys.stdout = StdoutRedirector(consola)
+        # sys.stdout = StdoutRedirector(consola)
         module = importlib.import_module("module5")
-        module.run_module5()
+        # module.run_module5()
         pass
 
     def programa6():
-        sys.stdout = StdoutRedirector(consola)
+        # sys.stdout = StdoutRedirector(consola)
         module = importlib.import_module("module6")
-        module.run_module6()
+        # module.run_module6()
         pass
 
     def programa7():
-        sys.stdout = StdoutRedirector(consola)
+        # sys.stdout = StdoutRedirector(consola)
         module = importlib.import_module("module7")
-        module.run_module7()
+        # module.run_module7()
         pass
 
     def programa8():
@@ -74,15 +94,15 @@ def main():
         pass
 
     def programa9():
-        sys.stdout = StdoutRedirector(consola)
+        # sys.stdout = StdoutRedirector(consola)
         module = importlib.import_module("module9")
-        module.run_module9()
+        # module.run_module9()
         pass    
 
     def programa10():
-        sys.stdout = StdoutRedirector(consola)
+        # sys.stdout = StdoutRedirector(consola)
         module = importlib.import_module("module10")
-        module.run_module10()
+        # module.run_module10()
         pass      
 
     # Crear un contenedor para las dos columnas
