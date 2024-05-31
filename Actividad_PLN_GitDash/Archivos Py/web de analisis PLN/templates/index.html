@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Text to Speech App</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Text to Speech Application - PLN 6B ICI FIME - Antonio Fernández Cruz</h1>
+        <br>
+        <form id="upload-form" enctype="multipart/form-data">
+            <label for="file-input">Upload text file:</label>
+            <input type="file" id="file-input" name="file" accept=".txt" required>
+            <button type="submit" id="submit-button">Convert to Speech</button>
+            <br>
+            <br>
+            <h2><center>IMPORTANTE‼ • Al presionar el botón 'Convert to Speech'</center></h2>
+            <h4><center>sé paciente ya que creará un archivo de sonido MP3 desde tu archivo TxT;</center></h4>
+            <h4><center>y una vez terminada la acción aparecerá un "Reproductor para utilizarlo"</center></h4>
+        </form>
+        <div id="result">
+            <p id="status-message" style="color: red; display: none;">Convirtiendo archivo, por favor espere...</p>
+            <audio id="audio-player" controls style="display: none;">
+                <source id="audio-source" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+    <script>
+        document.getElementById('upload-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData();
+            const fileInput = document.getElementById('file-input').files[0];
+            const submitButton = document.getElementById('submit-button');
+            const statusMessage = document.getElementById('status-message');
+
+            formData.append('file', fileInput);
+
+            // Cambiar color del botón y mostrar mensaje
+            submitButton.disabled = true;
+            submitButton.style.backgroundColor = 'gray';
+            statusMessage.style.display = 'block';
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                const audioPlayer = document.getElementById('audio-player');
+                const audioSource = document.getElementById('audio-source');
+                audioSource.src = data.audio_url;
+                audioPlayer.style.display = 'block';
+                audioPlayer.load();
+
+                // Resetear botón y ocultar mensaje
+                submitButton.disabled = false;
+                submitButton.style.backgroundColor = '';
+                statusMessage.style.display = 'none';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+
+                // Resetear botón y ocultar mensaje en caso de error
+                submitButton.disabled = false;
+                submitButton.style.backgroundColor = '';
+                statusMessage.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
