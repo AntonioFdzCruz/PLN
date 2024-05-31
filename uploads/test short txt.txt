@@ -1,0 +1,12 @@
+Abrir o crear repositorio
+Git clone es más fácil solo copiamos la url del repositorio en el cuadro verde
+
+git clone “URL”
+
+Entramos a la carpeta que queremos subir
+
+git add .
+
+git commint -M “cambios o X”
+
+git push
