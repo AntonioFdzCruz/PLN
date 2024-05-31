@@ -1,6 +1,4 @@
-" <nop/> <center> <div>  \n",
-    "<img src=\"https://portal.ucol.mx/content/micrositios/188/image/Escudo2021/Dos_lineas_Izq/UdeC_2L%20izq_Blanco.png\" width=\"820\" height=\"280\">\n",
-    "\n",
+![UDC_logo_SICEUC](https://portal.ucol.mx/content/micrositios/188/image/Escudo2021/Dos_lineas_Izq/UdeC_2L%20izq_Blanco.png)
 <center> <h1>CAMPUS COQUIMATLÁN</h1> </center>
 
 
